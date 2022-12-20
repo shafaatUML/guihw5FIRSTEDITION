@@ -241,6 +241,7 @@ $('li', $board).droppable({
             firstTile = "false"; 
 
 if (tiles_on_board >= 2) {
+    word = word_string; 
                 var curLetters = letters.slice( 0 ), word = "";
      
     // Make sure the word is at least 3 letters long
@@ -261,7 +262,7 @@ if (tiles_on_board >= 2) {
         }
  
 
-    }); 
+    });
 //****************************************************************************************** FROM BOARD TO RACK *****//
 // submit button must be hidden when tile count is under 2
 // tiles that are broken off / not connected must be re-drawn at the rack  OR only make tiles on either end draggable again?
