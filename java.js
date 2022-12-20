@@ -214,11 +214,15 @@ $('li', $board).droppable({
 
         if (tiles_on_board >= 2) {
 
-            var jamaica = "false"; 
-
-            if (isDictionaryWord(word_string) == "true"){
-                    document.getElementById('submit').style.visibility = "visible";
-            }
+            if (isDictionaryWord.dict[word_string]) {
+                console.log("TRUEEEEE"); 
+                jamaica = "true";
+              }
+              console.log("FALSEEEEEE");
+              jamaica =  "false";
+        }
+        if (jamaica == "true") {
+        document.getElementById('submit').style.visibility = "visible";
         }
 
     }
