@@ -1,7 +1,9 @@
+
 isDictionaryWord.dict = {};
 $.ajax({
     url: "graphics_data/dictionary.txt",
     success: function(result) {
+        console.log("booting up dict"); 
       var words = result.split("\n");
       for (var i = 0; i < words.length; ++i) {
         isDictionaryWord.dict[words[i].toUpperCase()] = true;
@@ -217,10 +219,13 @@ $('li', $board).droppable({
             if (isDictionaryWord.dict[word_string]) {
                 console.log("TRUEEEEE"); 
                 jamaica = "true";
-              }
+              } else {
               console.log("FALSEEEEEE");
               jamaica =  "false";
+              }
         }
+
+        
         if (jamaica == "true") {
         document.getElementById('submit').style.visibility = "visible";
         }
@@ -685,4 +690,5 @@ function isDictionaryWord(possibleWord) {
 
             } 
     */  
+
 
