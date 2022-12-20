@@ -1,41 +1,13 @@
-// The dictionary lookup object
-var dict = {};
- 
-// Do a jQuery Ajax request for the text dictionary
-$.get( "graphics_data/dictionary.txt", function( txt ) {
-    // Get an array of all the words
-    var words = txt.split( "\n" );
- 
-    // And add them as properties to the dictionary lookup
-    // This will allow for fast lookups later
-    for ( var i = 0; i < words.length; i++ ) {
-        dict[ words[i] ] = true;
+isDictionaryWord.dict = {};
+$.ajax({
+    url: "graphics_data/dictionary.txt",
+    success: function(result) {
+      var words = result.split("\n");
+      for (var i = 0; i < words.length; ++i) {
+        isDictionaryWord.dict[words[i].toUpperCase()] = true;
+      }
     }
-
-});
- /*
-// Takes in an array of letters and finds the longest
-// possible word at the front of the letters
-function findWord( word ) {
-    // Clone the array for manipulation
-    var curLetters = letters.slice( 0 ), word = "";
-     
-    // Make sure the word is at least 3 letters long
-    while ( curLetters.length > 2 ) {
-        // Get a word out of the existing letters
-        word = curLetters.join("");
-     
-        // And see if it's in the dictionary
-        if ( dict[ word ] ) {
-            // If it is, return that word
-            return "true";
-        }
- 
-        // Otherwise remove another letter from the end
-        curLetters.pop();
-   }
-}
-*/
+  });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*  Author: Shafaat Osmani
@@ -240,29 +212,15 @@ $('li', $board).droppable({
 
             firstTile = "false"; 
 
-if (tiles_on_board >= 2) {
-    word = word_string; 
-                var curLetters = letters.slice( 0 ), word = "";
-     
-    // Make sure the word is at least 3 letters long
-    while ( curLetters.length > 2 ) {
-        // Get a word out of the existing letters
-        word = curLetters.join("");
-     
-        // And see if it's in the dictionary
-        if ( dict[ word ] ) {
-            // If it is, return that word
-            document.getElementById('submit').style.visibility = "visible";
-        }
- 
-        // Otherwise remove another letter from the end
-        curLetters.pop();
-   }
+        if (tiles_on_board >= 2) {
+                    document.getElementById('submit').style.visibility = "visible";
             }
         }
  
 
-    });
+    }); 
+
+
 //****************************************************************************************** FROM BOARD TO RACK *****//
 // submit button must be hidden when tile count is under 2
 // tiles that are broken off / not connected must be re-drawn at the rack  OR only make tiles on either end draggable again?
@@ -612,6 +570,14 @@ function handle_drop(event, ui) {
     
     ui.draggable.addClass('dropped'); 
 } 
+
+function isDictionaryWord(possibleWord) {
+    if (isDictionaryWord.dict[possibleWord]) {
+      return "true";
+    }
+  
+    return "false";
+}
 
 
 
