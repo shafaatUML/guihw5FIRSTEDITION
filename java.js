@@ -213,9 +213,15 @@ $('li', $board).droppable({
             firstTile = "false"; 
 
         if (tiles_on_board >= 2) {
+
+            var jamaica = "false"; 
+
+            if (isDictionaryWord(word_string) == "true"){
                     document.getElementById('submit').style.visibility = "visible";
             }
         }
+
+    }
  
 
     }); 
