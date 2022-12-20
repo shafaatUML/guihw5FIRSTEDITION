@@ -587,8 +587,6 @@ function isDictionaryWord(possibleWord) {
 
 
 
-
-
 // NOTES FOR MY REFERENCE: //
 /*
 (board_arr[hold - 1] != "A" && board_arr[hold + 1] != "A" &&
@@ -681,5 +679,4 @@ function isDictionaryWord(possibleWord) {
 
             } 
     */  
-
 
