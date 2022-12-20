@@ -1,4 +1,5 @@
 
+
 isDictionaryWord.dict = {};
 $.ajax({
     url: "graphics_data/dictionary.txt",
@@ -8,6 +9,8 @@ $.ajax({
       for (var i = 0; i < words.length; ++i) {
         isDictionaryWord.dict[words[i].toUpperCase()] = true;
       }
+
+      console.log(isDictionaryWord.dict[15]); 
     }
   });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -691,6 +694,7 @@ function isDictionaryWord(possibleWord) {
 
             } 
     */  
+
 
 
 
