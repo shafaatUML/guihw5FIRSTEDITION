@@ -233,6 +233,7 @@ $('li', $board).droppable({
 
     }
  
+    
 
     }); 
 
