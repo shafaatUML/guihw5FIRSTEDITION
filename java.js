@@ -233,7 +233,6 @@ $('li', $board).droppable({
 
     }
  
-    
 
     }); 
 
@@ -692,5 +691,6 @@ function isDictionaryWord(possibleWord) {
 
             } 
     */  
+
 
 
