@@ -11,31 +11,30 @@ $.get( "graphics_data/dictionary.txt", function( txt ) {
     for ( var i = 0; i < words.length; i++ ) {
         dict[ words[i] ] = true;
     }
-     
-    // The game would start after the dictionary was loaded
-    // startGame();
+
 });
  
 // Takes in an array of letters and finds the longest
 // possible word at the front of the letters
-function findWord( letters ) {
+function findWord( word ) {
     // Clone the array for manipulation
-    var curLetters = letters.slice( 0 ), word = "";
+    //var curLetters = letters.slice( 0 ), word = "";
      
     // Make sure the word is at least 3 letters long
-    while ( curLetters.length > 2 ) {
+    //while ( curLetters.length > 2 ) {
         // Get a word out of the existing letters
-        word = curLetters.join("");
+        //word = curLetters.join("");
      
         // And see if it's in the dictionary
         if ( dict[ word ] ) {
             // If it is, return that word
-            return word;
+            return "true";
         }
  
         // Otherwise remove another letter from the end
-        curLetters.pop();
-    }
+        //curLetters.pop();
+        return "false"; 
+   // }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -242,7 +241,8 @@ $('li', $board).droppable({
             firstTile = "false"; 
 
             if (tiles_on_board >= 2) {
-                document.getElementById('submit').style.visibility = "visible";
+                if (findWord(word) == "true")
+                    document.getElementById('submit').style.visibility = "visible";
             }
         }
  
