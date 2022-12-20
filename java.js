@@ -1,3 +1,4 @@
+// The dictionary lookup object
 var dict = {};
  
 // Do a jQuery Ajax request for the text dictionary
@@ -12,7 +13,7 @@ $.get( "graphics_data/dictionary.txt", function( txt ) {
     }
 
 });
- 
+ /*
 // Takes in an array of letters and finds the longest
 // possible word at the front of the letters
 function findWord( word ) {
@@ -34,6 +35,7 @@ function findWord( word ) {
         curLetters.pop();
    }
 }
+*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*  Author: Shafaat Osmani
@@ -238,16 +240,28 @@ $('li', $board).droppable({
 
             firstTile = "false"; 
 
-            if (tiles_on_board >= 2) {
-                if (findWord(word) == "true")
-                    document.getElementById('submit').style.visibility = "visible";
+if (tiles_on_board >= 2) {
+                var curLetters = letters.slice( 0 ), word = "";
+     
+    // Make sure the word is at least 3 letters long
+    while ( curLetters.length > 2 ) {
+        // Get a word out of the existing letters
+        word = curLetters.join("");
+     
+        // And see if it's in the dictionary
+        if ( dict[ word ] ) {
+            // If it is, return that word
+            document.getElementById('submit').style.visibility = "visible";
+        }
+ 
+        // Otherwise remove another letter from the end
+        curLetters.pop();
+   }
             }
         }
  
 
     }); 
-
-
 //****************************************************************************************** FROM BOARD TO RACK *****//
 // submit button must be hidden when tile count is under 2
 // tiles that are broken off / not connected must be re-drawn at the rack  OR only make tiles on either end draggable again?
