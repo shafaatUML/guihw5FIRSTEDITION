@@ -580,9 +580,11 @@ function handle_drop(event, ui) {
 function isDictionaryWord(possibleWord) {
     if (isDictionaryWord.dict[possibleWord]) {
       return "true";
+      console.log("TRUEEEEE"); 
     }
   
     return "false";
+    console.log("FALSEEEEEE"); 
 }
 
 
