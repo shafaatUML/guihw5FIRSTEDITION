@@ -1,4 +1,3 @@
-// The dictionary lookup object
 var dict = {};
  
 // Do a jQuery Ajax request for the text dictionary
@@ -18,12 +17,12 @@ $.get( "graphics_data/dictionary.txt", function( txt ) {
 // possible word at the front of the letters
 function findWord( word ) {
     // Clone the array for manipulation
-    //var curLetters = letters.slice( 0 ), word = "";
+    var curLetters = letters.slice( 0 ), word = "";
      
     // Make sure the word is at least 3 letters long
-    //while ( curLetters.length > 2 ) {
+    while ( curLetters.length > 2 ) {
         // Get a word out of the existing letters
-        //word = curLetters.join("");
+        word = curLetters.join("");
      
         // And see if it's in the dictionary
         if ( dict[ word ] ) {
@@ -32,9 +31,8 @@ function findWord( word ) {
         }
  
         // Otherwise remove another letter from the end
-        //curLetters.pop();
-        return "false"; 
-   // }
+        curLetters.pop();
+   }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
