@@ -1,5 +1,4 @@
 
-
 isDictionaryWord.dict = {};
 $.ajax({
     url: "graphics_data/dictionary.txt",
@@ -694,7 +693,6 @@ function isDictionaryWord(possibleWord) {
 
             } 
     */  
-
 
 
 
