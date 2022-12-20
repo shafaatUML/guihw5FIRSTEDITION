@@ -56,6 +56,7 @@ let blanktileletter;
 var doubleScore = "false"; 
 var isWord = "false"; 
 var amount = 0; 
+var jamaica = "false"; 
 // Modified associative array, taken from Jesse M. Heines. Added letter value and 
 // edited indexing to numbers rather than letters
 // His copyright:
@@ -225,7 +226,7 @@ $('li', $board).droppable({
               }
         }
 
-        
+
         if (jamaica == "true") {
         document.getElementById('submit').style.visibility = "visible";
         }
