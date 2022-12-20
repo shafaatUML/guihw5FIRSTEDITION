@@ -1,4 +1,6 @@
 var words = []; 
+
+
 isDictionaryWord.dict = {};
 $.ajax({
     url: "graphics_data/dictionary.txt",
