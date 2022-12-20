@@ -1,15 +1,15 @@
-
+var words = []; 
 isDictionaryWord.dict = {};
 $.ajax({
     url: "graphics_data/dictionary.txt",
     success: function(result) {
         console.log("booting up dict"); 
-      var words = result.split("\n");
+      words = result.split("\n");
       for (var i = 0; i < words.length; ++i) {
         isDictionaryWord.dict[words[i].toUpperCase()] = true;
       }
 
-      console.log(words[15]); 
+      console.log(words[30]); 
     }
   });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -219,13 +219,13 @@ $('li', $board).droppable({
 
         if (tiles_on_board >= 2) {
 
-            if (isDictionaryWord.dict[word_string]) {
+            if (words.includes(word_string)) {
                 console.log("TRUEEEEE"); 
                 jamaica = "true";
-              } else {
+            } else {
               console.log("FALSEEEEEE");
               jamaica =  "false";
-              }
+            }
         }
 
 
@@ -236,7 +236,7 @@ $('li', $board).droppable({
     }
  
 
-    }); 
+}); 
 
 
 //****************************************************************************************** FROM BOARD TO RACK *****//
@@ -245,7 +245,9 @@ $('li', $board).droppable({
 $($rack).droppable({
     accept: "#rack li",
     drop: function( event, ui ) {
-        tiles_on_board--;
+        if (tiles_on_board != 0) {
+            tiles_on_board--;
+        }
         //console.log("drag back to rack works"); 
         score -= Number(document.getElementById($(ui.draggable).attr("id")).dataset.letval);
 
